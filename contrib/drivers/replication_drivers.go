@@ -25,6 +25,7 @@ import (
 	"reflect"
 
 	"github.com/sodafoundation/dock/contrib/drivers/drbd"
+	"github.com/sodafoundation/dock/contrib/drivers/netapp/ontap"
 	"github.com/sodafoundation/dock/contrib/drivers/huawei/oceanstor"
 	scms "github.com/sodafoundation/dock/contrib/drivers/scutech/cms"
 	driversConfig "github.com/sodafoundation/dock/contrib/drivers/utils/config"
@@ -66,6 +67,9 @@ func IsSupportArrayBasedReplication(resourceType string) bool {
 func InitReplicationDriver(resourceType string) (ReplicationDriver, error) {
 	var d ReplicationDriver
 	switch resourceType {
+	case driversConfig.NetappDRBDDriverType:
+		d = &ontap.ReplicationDriver{}
+		break
 	case driversConfig.DRBDDriverType:
 		d = &drbd.ReplicationDriver{}
 		break
@@ -98,3 +102,4 @@ func CleanReplicationDriver(d ReplicationDriver) ReplicationDriver {
 
 	return d
 }
+

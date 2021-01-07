@@ -31,6 +31,7 @@ const (
 	HuaweiOceanStorFileDriverType  = "huawei_oceanstor_file"
 	HpeNimbleDriverType            = "hpe_nimble"
 	DRBDDriverType                 = "drbd"
+        NetappDRBDDriverType           = "ontap"
 	ScutechCMSDriverType           = "scutech_cms"
 	ManilaDriverType               = "manila"
 	FujitsuEternusDriverType       = "fujitsu_eternus"
